@@ -1,8 +1,7 @@
 import React from "react";
-import "./Header.css";
 
 const Header = () => {
-  return <nav>Header</nav>;
+  return <nav>Get Ready to Complete your Daily Goals</nav>;
 };
 
 export default Header;
