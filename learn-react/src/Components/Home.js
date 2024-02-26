@@ -50,16 +50,19 @@ const Home = () => {
         <button type="submit">Add</button>
       </form>
 
-      {/* <Task /> */}
-      {tasks.map((task, index) => (
-        <Task
-          key={index}
-          title={task.title}
-          description={task.description}
-          deleteTask={deleteTaskHandler}
-          index={index}
-        />
-      ))}
+      {tasks.length === 0 ? (
+        <h1 style={{ color: "unset" }}>No tasks found</h1>
+      ) : (
+        tasks.map((task, index) => (
+          <Task
+            key={index}
+            title={task.title}
+            description={task.description}
+            deleteTask={deleteTaskHandler}
+            index={index}
+          />
+        ))
+      )}
     </div>
   );
 };
