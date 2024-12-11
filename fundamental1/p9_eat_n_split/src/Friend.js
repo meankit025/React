@@ -1,7 +1,8 @@
-const Friend = ({ friend }) => {
-  console.log(`i`, friend);
+const Friend = ({ friend, handleSelectFriend, selectedFriend }) => {
+  const isSelected = selectedFriend === friend.frinedName;
+  console.log(isSelected, friend, `>`, selectedFriend);
   return (
-    <li key={friend.id}>
+    <li className={isSelected ? "selected" : ""}>
       <img src={friend.imageUrl} alt={friend.frinedName} />
       <h3>{friend.frinedName}</h3>
 
@@ -17,7 +18,13 @@ const Friend = ({ friend }) => {
       )}
       {friend.balance === 0 && <p>You and {friend.frinedName} are even</p>}
 
-      <button className="button">Select</button>
+      <button
+        // className="button"
+        className={selectedFriend ? "button select:focus" : "button"}
+        onClick={() => handleSelectFriend(friend.frinedName)}
+      >
+        {isSelected ? "Close" : " Select"}
+      </button>
     </li>
   );
 };
